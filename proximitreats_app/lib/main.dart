@@ -17,7 +17,7 @@ class MainApp extends StatelessWidget {
       home: Scaffold(
         body: Center(
           child: FutureBuilder(
-            future: sl<HelloWorldRepository>().fetchHelloWorld('Stephan'),
+            future: sl<HelloWorldRepository>().fetchHelloWorld('Tessa'),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const CircularProgressIndicator();
