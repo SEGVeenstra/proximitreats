@@ -1,6 +1,6 @@
-import 'package:Proximitreats/repositories/hello_world_repository.dart';
-import 'package:Proximitreats/service_locator.dart';
 import 'package:flutter/material.dart';
+import 'package:proximitreats/repositories/hello_world_repository.dart';
+import 'package:proximitreats/service_locator.dart';
 
 void main() {
   setupServiceLocator();
