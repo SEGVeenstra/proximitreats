@@ -1,4 +1,4 @@
-.PHONY: help docker-up docker-down server-run generate-client create-migration
+.PHONY: help docker-up docker-down server-run generate-client create-migration app-build-runner
 
 # Display available actions
 help:
@@ -8,6 +8,7 @@ help:
 	@echo "  server-run       - Run the server in a new terminal"
 	@echo "  generate-client  - Generate client files"
 	@echo "  create-migration - Create a new migration"
+	@echo "  app-build-runner - Run build_runner for the app"
 
 # Start the Docker services (PostgreSQL and Redis)
 docker-up:
@@ -28,3 +29,7 @@ generate-client:
 # Create a new migration
 create-migration:
 	cd proximitreats_server && serverpod create-migration
+
+# Run build_runner for the app
+app-build-runner:
+	cd proximitreats_app && dart run build_runner build --delete-conflicting-outputs

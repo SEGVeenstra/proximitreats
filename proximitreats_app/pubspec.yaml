@@ -15,6 +15,9 @@ dependencies:
   proximitreats_client:
     path: ../proximitreats_client
   serverpod_flutter: ^3.1.1
+  serverpod_auth_idp_flutter: ^3.1.1
+  go_router: ^17.0.1
+  listenable_widget: ^0.1.0
 
 dev_dependencies:
   flutter_test:
