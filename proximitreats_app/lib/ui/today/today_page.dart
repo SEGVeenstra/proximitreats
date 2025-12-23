@@ -4,13 +4,13 @@ import 'package:proximitreats/service_locator.dart';
 import 'package:proximitreats_client/proximitreats_client.dart';
 import 'package:serverpod_auth_idp_flutter/serverpod_auth_idp_flutter.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class TodayPage extends StatelessWidget {
+  const TodayPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home Page')),
+      appBar: AppBar(title: const Text('Today Page')),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
 
