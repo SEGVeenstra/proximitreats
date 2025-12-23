@@ -5,6 +5,6 @@ class AlertsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: const Center(child: Text('Alerts Page')));
+    return const Center(child: Text('Alerts Page'));
   }
 }

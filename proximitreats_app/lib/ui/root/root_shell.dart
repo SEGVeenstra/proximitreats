@@ -1,24 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class RootShell extends StatelessWidget {
-  const RootShell({
-    super.key,
-    required this.child,
-    required this.selectedIndex,
-    this.onDestinationSelected,
-  });
+  const RootShell({super.key, required this.child});
 
-  final Widget child;
-  final int selectedIndex;
-  final void Function(int index)? onDestinationSelected;
+  final StatefulNavigationShell child;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: child,
       bottomNavigationBar: NavigationBar(
-        selectedIndex: selectedIndex,
-        onDestinationSelected: (index) => onDestinationSelected?.call(index),
+        selectedIndex: child.currentIndex,
+        onDestinationSelected: (index) => child.goBranch(index),
         destinations: [
           NavigationDestination(
             icon: Icon(Icons.calendar_month_outlined),

@@ -9,40 +9,34 @@ class TodayPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Today Page')),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('Welcome to Proximity Treats!'),
-
-          FutureBuilder(
-            future: sl<HelloWorldRepository>().fetchHelloWorld(
-              sl<Client>().auth.authInfo?.authUserId.toString() ?? 'unknown',
-            ),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const CircularProgressIndicator();
-              } else if (snapshot.hasError) {
-                return Text('Error: ${snapshot.error}');
-              } else if (snapshot.hasData) {
-                return Text('Message from server: ${snapshot.data}');
-              } else {
-                return const Text('No data received from server.');
-              }
-            },
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text('Welcome to Proximity Treats!'),
+        FutureBuilder(
+          future: sl<HelloWorldRepository>().fetchHelloWorld(
+            sl<Client>().auth.authInfo?.authUserId.toString() ?? 'unknown',
           ),
-
-          OutlinedButton(
-            onPressed: () {
-              sl<Client>().auth.signOutDevice();
-            },
-            child: const Text('Logout'),
-          ),
-        ],
-      ),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const CircularProgressIndicator();
+            } else if (snapshot.hasError) {
+              return Text('Error: ${snapshot.error}');
+            } else if (snapshot.hasData) {
+              return Text('Message from server: ${snapshot.data}');
+            } else {
+              return const Text('No data received from server.');
+            }
+          },
+        ),
+        OutlinedButton(
+          onPressed: () {
+            sl<Client>().auth.signOutDevice();
+          },
+          child: const Text('Logout'),
+        ),
+      ],
     );
   }
 }
