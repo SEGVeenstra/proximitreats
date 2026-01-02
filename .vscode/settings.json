@@ -1,3 +1,16 @@
 {
-  "dart.flutterSdkPath": ".fvm/versions/3.38.5"
+  "dart.flutterSdkPath": ".fvm/versions/3.38.5",
+  "sqltools.connections": [
+    {
+      "ssh": "Disabled",
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 8090,
+      "driver": "PostgreSQL",
+      "name": "Development",
+      "group": "ProximiTreats",
+      "database": "proximitreats",
+      "username": "postgres"
+    }
+  ]
 }

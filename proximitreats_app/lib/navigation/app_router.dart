@@ -17,9 +17,9 @@ GoRouter createAppRouter(Client client) {
     initialLocation: '/',
     redirect: (context, state) {
       final isLoggedIn = client.auth.authInfo != null;
-      final isLoggingIn = state.path == '/login';
+      final isLoggingIn = state.fullPath?.startsWith('/login') ?? false;
 
-      if (!isLoggedIn != isLoggingIn) {
+      if (!isLoggedIn && !isLoggingIn) {
         return '/login';
       } else if (isLoggedIn && isLoggingIn) {
         return '/';
