@@ -4,6 +4,7 @@ import 'package:proximitreats/ui/alerts/alerts_page.dart';
 import 'package:proximitreats/ui/auth/login_page.dart';
 import 'package:proximitreats/ui/root/root_shell.dart';
 import 'package:proximitreats/ui/search/search_page.dart';
+import 'package:proximitreats/ui/shops/my_shops_page.dart';
 import 'package:proximitreats/ui/today/today_page.dart';
 import 'package:proximitreats_client/proximitreats_client.dart';
 import 'package:serverpod_auth_idp_flutter/serverpod_auth_idp_flutter.dart';
@@ -55,6 +56,14 @@ GoRouter createAppRouter(Client client) {
               GoRoute(
                 path: '/alerts',
                 builder: (context, state) => const AlertsPage(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: '/my-shops',
+                builder: (context, state) => const MyShopsPage(),
               ),
             ],
           ),

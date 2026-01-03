@@ -16,12 +16,16 @@ Future<void> setupServiceLocator() => sl.init();
 @module
 abstract class RegisterModule {
   @singleton
+  FlutterAuthSessionManager get authSessionManager =>
+      FlutterAuthSessionManager();
+
+  @singleton
   @preResolve
-  Future<Client> get client async {
+  Future<Client> client(FlutterAuthSessionManager authSessionManager) async {
     const serverUrl = 'http://localhost:8080/';
     final client = Client(serverUrl)
       ..connectivityMonitor = FlutterConnectivityMonitor()
-      ..authSessionManager = FlutterAuthSessionManager();
+      ..authSessionManager = authSessionManager;
     await client.auth.initialize();
     return client;
   }

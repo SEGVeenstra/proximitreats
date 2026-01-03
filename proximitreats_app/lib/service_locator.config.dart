@@ -15,7 +15,11 @@ import 'package:injectable/injectable.dart' as _i526;
 import 'package:proximitreats/repositories/hello_world_repository.dart'
     as _i425;
 import 'package:proximitreats/service_locator.dart' as _i523;
+import 'package:proximitreats/services/user_service.dart' as _i325;
+import 'package:proximitreats/ui/root/root_shell_view_model.dart' as _i923;
 import 'package:proximitreats_client/proximitreats_client.dart' as _i207;
+import 'package:serverpod_auth_idp_flutter/serverpod_auth_idp_flutter.dart'
+    as _i90;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -25,16 +29,25 @@ extension GetItInjectableX on _i174.GetIt {
   }) async {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final registerModule = _$RegisterModule();
+    gh.singleton<_i90.FlutterAuthSessionManager>(
+      () => registerModule.authSessionManager,
+    );
+    gh.singleton<_i325.UserService>(
+      () => _i325.UserService(gh<_i90.FlutterAuthSessionManager>()),
+    );
     await gh.singletonAsync<_i207.Client>(
-      () => registerModule.client,
+      () => registerModule.client(gh<_i90.FlutterAuthSessionManager>()),
       preResolve: true,
+    );
+    gh.factory<_i923.RootShellViewModel>(
+      () => _i923.RootShellViewModel(gh<_i325.UserService>()),
+    );
+    gh.singleton<_i425.HelloWorldRepository>(
+      () => _i425.HelloWorldRepository(gh<_i207.Client>()),
     );
     await gh.singletonAsync<_i583.GoRouter>(
       () => registerModule.appRouter(gh<_i207.Client>()),
       preResolve: true,
-    );
-    gh.singleton<_i425.HelloWorldRepository>(
-      () => _i425.HelloWorldRepository(gh<_i207.Client>()),
     );
     return this;
   }
