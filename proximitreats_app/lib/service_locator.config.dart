@@ -15,8 +15,10 @@ import 'package:injectable/injectable.dart' as _i526;
 import 'package:proximitreats/repositories/hello_world_repository.dart'
     as _i425;
 import 'package:proximitreats/service_locator.dart' as _i523;
+import 'package:proximitreats/services/shops_service.dart' as _i737;
 import 'package:proximitreats/services/user_service.dart' as _i325;
 import 'package:proximitreats/ui/root/root_shell_view_model.dart' as _i923;
+import 'package:proximitreats/ui/search/search_page_view_model.dart' as _i306;
 import 'package:proximitreats_client/proximitreats_client.dart' as _i207;
 import 'package:serverpod_auth_idp_flutter/serverpod_auth_idp_flutter.dart'
     as _i90;
@@ -45,9 +47,15 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i425.HelloWorldRepository>(
       () => _i425.HelloWorldRepository(gh<_i207.Client>()),
     );
+    gh.singleton<_i737.ShopsService>(
+      () => _i737.ShopsService(gh<_i207.Client>()),
+    );
     await gh.singletonAsync<_i583.GoRouter>(
       () => registerModule.appRouter(gh<_i207.Client>()),
       preResolve: true,
+    );
+    gh.factory<_i306.SearchPageViewModel>(
+      () => _i306.SearchPageViewModel(gh<_i737.ShopsService>()),
     );
     return this;
   }

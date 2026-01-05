@@ -10,10 +10,11 @@ class ShopsEndpoint extends Endpoint {
     String query, {
     String language = 'english',
   }) async {
+    print('REACHED');
     if (query.trim().isEmpty) return [];
 
     // We pass the language parameter into the SQL
-    var sql = '''
+    final sql = '''
     SELECT * FROM shops 
     WHERE to_tsvector(@lang::regconfig, name || ' ' || description) 
     @@ websearch_to_tsquery(@lang::regconfig, @query)
@@ -27,11 +28,20 @@ class ShopsEndpoint extends Endpoint {
       },
     );
 
-    var result = await session.db.unsafeQuery(
-      sql,
-      parameters: queryParams,
-    );
+    try {
+      print('REACHED 1');
+      final result = await session.db.unsafeQuery(
+        sql,
+        parameters: queryParams,
+      );
 
-    return result.map((row) => Shop.fromJson(row[0])).toList();
+      print('REACHED 3');
+
+      return result.map((row) => Shop.fromJson(row.toColumnMap())).toList();
+    } catch (e) {
+      print('REACHED 2');
+      print('Error executing search query: $e');
+      return [];
+    }
   }
 }
