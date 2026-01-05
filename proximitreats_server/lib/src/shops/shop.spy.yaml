@@ -1,0 +1,15 @@
+class: Shop
+table: shops
+fields:
+    id: UuidValue?, defaultPersist=random
+    name: String
+    description: String
+    image: String?
+
+    # Relations to user
+    owner: module:serverpod_auth_core:AuthUser?, relation(onDelete=Cascade)
+
+indexes:
+  # Ensure the generated field 'ownerId' has an index for performance
+  owner_id_idx:
+    fields: ownerId
