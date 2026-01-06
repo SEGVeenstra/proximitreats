@@ -14,15 +14,19 @@ class DiscoverPage extends SlListenableWidget<DiscoverPageViewModel> {
           : RefreshIndicator.adaptive(
               onRefresh: () => viewModel.load(),
               child: ListView.builder(
+                padding: const EdgeInsets.all(16),
                 itemCount: viewModel.shops.length,
                 itemBuilder: (context, index) {
                   final shop = viewModel.shops[index];
-                  return ListTile(
-                    leading: shop.image != null
-                        ? Image.network(shop.image!)
-                        : const Icon(Icons.store),
-                    title: Text(shop.name),
-                    subtitle: Text(shop.description),
+                  return Card(
+                    child: ListTile(
+                      onTap: () {},
+                      leading: shop.image != null
+                          ? Image.network(shop.image!)
+                          : const Icon(Icons.store),
+                      title: Text(shop.name),
+                      subtitle: Text(shop.description),
+                    ),
                   );
                 },
               ),

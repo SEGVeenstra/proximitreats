@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:proximitreats/theme/pt_theme_light.dart';
 
 class ProximitreatsApp extends StatelessWidget {
   const ProximitreatsApp({super.key, required this.router});
@@ -10,7 +11,7 @@ class ProximitreatsApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Proximity Treats',
-      theme: ThemeData(primarySwatch: Colors.purple),
+      theme: ptThemeLight,
       routerConfig: router,
     );
   }
