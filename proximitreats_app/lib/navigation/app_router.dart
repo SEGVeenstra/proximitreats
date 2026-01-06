@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:proximitreats/ui/alerts/alerts_page.dart';
 import 'package:proximitreats/ui/auth/login_page.dart';
+import 'package:proximitreats/ui/discover/discover_page.dart';
 import 'package:proximitreats/ui/root/root_shell.dart';
-import 'package:proximitreats/ui/search/search_page.dart';
 import 'package:proximitreats/ui/shops/my_shops_page.dart';
 import 'package:proximitreats/ui/today/today_page.dart';
 import 'package:proximitreats_client/proximitreats_client.dart';
@@ -47,7 +47,7 @@ GoRouter createAppRouter(Client client) {
             routes: [
               GoRoute(
                 path: '/search',
-                builder: (context, state) => const SearchPage(),
+                builder: (context, state) => const DiscoverPage(),
               ),
             ],
           ),
