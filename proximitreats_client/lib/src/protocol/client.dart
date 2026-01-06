@@ -260,6 +260,13 @@ class EndpointShops extends _i2.EndpointRef {
   @override
   String get name => 'shops';
 
+  _i3.Future<List<_i6.Shop>> getAll() =>
+      caller.callServerEndpoint<List<_i6.Shop>>(
+        'shops',
+        'getAll',
+        {},
+      );
+
   /// Searches for shops based on the provided query and language.
   /// language is used to determine the text search configuration in the database.
   /// Defaults to 'english'.

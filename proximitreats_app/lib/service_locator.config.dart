@@ -17,8 +17,9 @@ import 'package:proximitreats/repositories/hello_world_repository.dart'
 import 'package:proximitreats/service_locator.dart' as _i523;
 import 'package:proximitreats/services/shops_service.dart' as _i737;
 import 'package:proximitreats/services/user_service.dart' as _i325;
+import 'package:proximitreats/ui/discover/discover_page_view_model.dart'
+    as _i292;
 import 'package:proximitreats/ui/root/root_shell_view_model.dart' as _i923;
-import 'package:proximitreats/ui/search/search_page_view_model.dart' as _i306;
 import 'package:proximitreats_client/proximitreats_client.dart' as _i207;
 import 'package:serverpod_auth_idp_flutter/serverpod_auth_idp_flutter.dart'
     as _i90;
@@ -54,9 +55,10 @@ extension GetItInjectableX on _i174.GetIt {
       () => registerModule.appRouter(gh<_i207.Client>()),
       preResolve: true,
     );
-    gh.factory<_i306.SearchPageViewModel>(
-      () => _i306.SearchPageViewModel(gh<_i737.ShopsService>()),
-    );
+    await gh.factoryAsync<_i292.DiscoverPageViewModel>(() {
+      final i = _i292.DiscoverPageViewModel(gh<_i737.ShopsService>());
+      return i.load().then((_) => i);
+    }, preResolve: true);
     return this;
   }
 }

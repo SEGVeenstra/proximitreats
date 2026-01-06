@@ -19,4 +19,12 @@ class ShopsService {
       return [];
     }
   }
+
+  Future<List<Shop>> getAll() async {
+    try {
+      return await _client.shops.getAll();
+    } catch (e) {
+      return [];
+    }
+  }
 }
