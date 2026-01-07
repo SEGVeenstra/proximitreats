@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:proximitreats/theme/pt_color_scheme_light.dart';
+import 'package:proximitreats/theme/pt_text_theme.dart';
 
 final ptThemeLight = ThemeData(
   colorScheme: ptColorSchemeLight,
   useMaterial3: true,
   scaffoldBackgroundColor: ptColorSchemeLight.surfaceContainerLowest,
+  textTheme: ptTextTheme,
   cardTheme: CardThemeData(
     elevation: 0,
     clipBehavior: Clip.antiAlias,

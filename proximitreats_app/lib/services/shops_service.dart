@@ -15,7 +15,7 @@ class ShopsService {
     try {
       return await _client.shops.search(query, language: language);
     } catch (e) {
-      print(e);
+      // TODO: handle some nice logging here
       return [];
     }
   }
