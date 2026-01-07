@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
+import 'package:logging/logging.dart';
 import 'package:proximitreats/services/shops_service.dart';
 import 'package:proximitreats_client/proximitreats_client.dart';
+
+final _log = Logger('DiscoverPageViewModel');
 
 @injectable
 class DiscoverPageViewModel with ChangeNotifier {
@@ -11,10 +14,12 @@ class DiscoverPageViewModel with ChangeNotifier {
   final TextEditingController searchController = TextEditingController();
 
   DiscoverPageViewModel(this._shopsService) {
+    _log.fine('Initialized DiscoverPageViewModel');
     load();
   }
 
   Future<void> load() async {
+    _log.fine('Loading shops in DiscoverPageViewModel');
     isLoading = true;
     notifyListeners();
 
@@ -23,5 +28,12 @@ class DiscoverPageViewModel with ChangeNotifier {
 
     isLoading = false;
     notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    _log.fine('Disposing DiscoverPageViewModel');
+    searchController.dispose();
+    super.dispose();
   }
 }

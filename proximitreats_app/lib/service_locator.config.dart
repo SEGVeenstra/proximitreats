@@ -55,10 +55,9 @@ extension GetItInjectableX on _i174.GetIt {
       () => registerModule.appRouter(gh<_i207.Client>()),
       preResolve: true,
     );
-    await gh.factoryAsync<_i292.DiscoverPageViewModel>(() {
-      final i = _i292.DiscoverPageViewModel(gh<_i737.ShopsService>());
-      return i.load().then((_) => i);
-    }, preResolve: true);
+    gh.factory<_i292.DiscoverPageViewModel>(
+      () => _i292.DiscoverPageViewModel(gh<_i737.ShopsService>()),
+    );
     return this;
   }
 }
