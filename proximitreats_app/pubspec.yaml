@@ -19,6 +19,8 @@ dependencies:
   go_router: ^17.0.1
   listenable_widget: ^0.1.0
   logging: ^1.3.0
+  cached_network_image: ^3.4.1
+  gap: ^3.0.1
 
 dev_dependencies:
   flutter_test:

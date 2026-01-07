@@ -25,8 +25,8 @@ final ptTextTheme = TextTheme(
 
   // TITLE: Medium-emphasis (Card headers, App bars)
   titleLarge: _outfit(22, 500, 0.0),
-  titleMedium: _outfit(16, 500, 0.15),
-  titleSmall: _outfit(14, 500, 0.1),
+  titleMedium: _outfit(18, 500, 0.15),
+  titleSmall: _outfit(15, 500, 0.1),
 
   // BODY: Low-emphasis (Long-form text)
   // Note: 450 weight is often more readable than 400 for variable fonts

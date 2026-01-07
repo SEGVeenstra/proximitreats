@@ -28,12 +28,12 @@ class RootShell extends ListenableWidget<RootShellViewModel> {
           NavigationDestination(
             icon: Icon(Icons.search),
             selectedIcon: Icon(Icons.search_outlined),
-            label: 'Search',
+            label: 'Discover',
           ),
           NavigationDestination(
             icon: Icon(Icons.notifications_outlined),
             selectedIcon: Icon(Icons.notifications),
-            label: 'Alerts',
+            label: 'My Alerts',
           ),
           if (viewModel.shouldShowMyShopsTab)
             NavigationDestination(
