@@ -21,7 +21,7 @@ class DiscoverListItem extends StatelessWidget {
             children: [
               DecoratedBox(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(12),
                   color: Theme.of(context).colorScheme.surfaceBright,
                 ),
                 child: (shop.image != null)
