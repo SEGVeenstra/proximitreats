@@ -31,4 +31,6 @@ final ptColorSchemeLight = ColorScheme.light(
   surfaceContainer: PtColors.peach,
   surfaceContainerHigh: PtColors.peachDark,
   surfaceContainerHighest: PtColors.peachDarkest,
+  // Other
+  shadow: PtColors.brownDarkest,
 );

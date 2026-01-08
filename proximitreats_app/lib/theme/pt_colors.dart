@@ -23,4 +23,5 @@ class PtColors {
   static const Color peachDarkest = Color(0xFFFBD9BC);
   static const Color brownLight = Color(0xFFF3933F);
   static const Color brownDark = Color(0xFFC0600C);
+  static const Color brownDarkest = Color(0xFF603006);
 }

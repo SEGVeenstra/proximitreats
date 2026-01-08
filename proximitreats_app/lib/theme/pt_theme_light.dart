@@ -7,6 +7,14 @@ final ptThemeLight = ThemeData(
   useMaterial3: true,
   scaffoldBackgroundColor: ptColorSchemeLight.surfaceContainerLowest,
   textTheme: ptTextTheme,
+  shadowColor: ptColorSchemeLight.shadow,
+  appBarTheme: AppBarThemeData(
+    surfaceTintColor: Colors.transparent,
+    backgroundColor: WidgetStateColor.fromMap({
+      WidgetState.scrolledUnder: ptColorSchemeLight.surfaceContainer,
+      WidgetState.any: ptColorSchemeLight.surfaceContainerLowest,
+    }),
+  ),
   cardTheme: CardThemeData(
     elevation: 0,
     clipBehavior: Clip.antiAlias,
