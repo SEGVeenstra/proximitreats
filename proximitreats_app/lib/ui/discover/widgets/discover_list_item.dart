@@ -41,9 +41,9 @@ class DiscoverListItem extends StatelessWidget {
                       shop.name,
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
-                    Gap(8),
+                    Gap(4),
                     Text(
-                      shop.description,
+                      shop.intro,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ],

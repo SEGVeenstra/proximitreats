@@ -1,3 +1,3 @@
-UPDATE serverpod_auth_core_user
-SET "scopeNames" = '["admin", "vendor"]'
-WHERE id = '019b4d00-eb49-7f7b-8d98-7ef863025d6b';
+UPDATE "shops"
+SET "intro" = 'ProximiTreats voor al je lekkernijen!'
+WHERE "id" = '9f621b5d-3ce5-4c38-be06-3c3f9fa61976';

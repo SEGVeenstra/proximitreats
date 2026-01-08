@@ -3,6 +3,7 @@ table: shops
 fields:
     id: UuidValue?, defaultPersist=random
     name: String
+    intro: String, default=''
     description: String
     image: String?
 

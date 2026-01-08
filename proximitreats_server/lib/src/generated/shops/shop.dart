@@ -22,15 +22,17 @@ abstract class Shop
   Shop._({
     this.id,
     required this.name,
+    String? intro,
     required this.description,
     this.image,
     required this.ownerId,
     this.owner,
-  });
+  }) : intro = intro ?? '';
 
   factory Shop({
     _i1.UuidValue? id,
     required String name,
+    String? intro,
     required String description,
     String? image,
     required _i1.UuidValue ownerId,
@@ -43,6 +45,7 @@ abstract class Shop
           ? null
           : _i1.UuidValueJsonExtension.fromJson(jsonSerialization['id']),
       name: jsonSerialization['name'] as String,
+      intro: jsonSerialization['intro'] as String,
       description: jsonSerialization['description'] as String,
       image: jsonSerialization['image'] as String?,
       ownerId: _i1.UuidValueJsonExtension.fromJson(
@@ -65,6 +68,8 @@ abstract class Shop
 
   String name;
 
+  String intro;
+
   String description;
 
   String? image;
@@ -82,6 +87,7 @@ abstract class Shop
   Shop copyWith({
     _i1.UuidValue? id,
     String? name,
+    String? intro,
     String? description,
     String? image,
     _i1.UuidValue? ownerId,
@@ -93,6 +99,7 @@ abstract class Shop
       '__className__': 'Shop',
       if (id != null) 'id': id?.toJson(),
       'name': name,
+      'intro': intro,
       'description': description,
       if (image != null) 'image': image,
       'ownerId': ownerId.toJson(),
@@ -106,6 +113,7 @@ abstract class Shop
       '__className__': 'Shop',
       if (id != null) 'id': id?.toJson(),
       'name': name,
+      'intro': intro,
       'description': description,
       if (image != null) 'image': image,
       'ownerId': ownerId.toJson(),
@@ -149,6 +157,7 @@ class _ShopImpl extends Shop {
   _ShopImpl({
     _i1.UuidValue? id,
     required String name,
+    String? intro,
     required String description,
     String? image,
     required _i1.UuidValue ownerId,
@@ -156,6 +165,7 @@ class _ShopImpl extends Shop {
   }) : super._(
          id: id,
          name: name,
+         intro: intro,
          description: description,
          image: image,
          ownerId: ownerId,
@@ -169,6 +179,7 @@ class _ShopImpl extends Shop {
   Shop copyWith({
     Object? id = _Undefined,
     String? name,
+    String? intro,
     String? description,
     Object? image = _Undefined,
     _i1.UuidValue? ownerId,
@@ -177,6 +188,7 @@ class _ShopImpl extends Shop {
     return Shop(
       id: id is _i1.UuidValue? ? id : this.id,
       name: name ?? this.name,
+      intro: intro ?? this.intro,
       description: description ?? this.description,
       image: image is String? ? image : this.image,
       ownerId: ownerId ?? this.ownerId,
@@ -190,6 +202,11 @@ class ShopUpdateTable extends _i1.UpdateTable<ShopTable> {
 
   _i1.ColumnValue<String, String> name(String value) => _i1.ColumnValue(
     table.name,
+    value,
+  );
+
+  _i1.ColumnValue<String, String> intro(String value) => _i1.ColumnValue(
+    table.intro,
     value,
   );
 
@@ -217,6 +234,11 @@ class ShopTable extends _i1.Table<_i1.UuidValue?> {
       'name',
       this,
     );
+    intro = _i1.ColumnString(
+      'intro',
+      this,
+      hasDefault: true,
+    );
     description = _i1.ColumnString(
       'description',
       this,
@@ -234,6 +256,8 @@ class ShopTable extends _i1.Table<_i1.UuidValue?> {
   late final ShopUpdateTable updateTable;
 
   late final _i1.ColumnString name;
+
+  late final _i1.ColumnString intro;
 
   late final _i1.ColumnString description;
 
@@ -260,6 +284,7 @@ class ShopTable extends _i1.Table<_i1.UuidValue?> {
   List<_i1.Column> get columns => [
     id,
     name,
+    intro,
     description,
     image,
     ownerId,
