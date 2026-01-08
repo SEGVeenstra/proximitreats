@@ -45,6 +45,7 @@ class DiscoverListItem extends StatelessWidget {
                     Text(
                       shop.intro,
                       style: Theme.of(context).textTheme.bodyMedium,
+                      maxLines: 3,
                     ),
                   ],
                 ),

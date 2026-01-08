@@ -11,6 +11,7 @@ class DiscoverPageViewModel with ChangeNotifier {
   final ShopsService _shopsService;
   List<Shop> shops = [];
   bool isLoading = false;
+  String? error;
   final TextEditingController searchController = TextEditingController();
 
   DiscoverPageViewModel(this._shopsService) {
@@ -23,9 +24,17 @@ class DiscoverPageViewModel with ChangeNotifier {
     isLoading = true;
     notifyListeners();
 
-    final shops = await _shopsService.getAll();
-    this.shops = shops;
-
+    final shopsResult = await _shopsService.getAll();
+    shopsResult.when(
+      (shops) {
+        this.shops = shops;
+        error = null;
+      },
+      (error) {
+        shops = [];
+        this.error = 'Failed to fetch shops!';
+      },
+    );
     isLoading = false;
     notifyListeners();
   }
