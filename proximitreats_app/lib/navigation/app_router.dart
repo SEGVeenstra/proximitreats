@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:logging/logging.dart';
 import 'package:proximitreats/ui/alerts/alerts_page.dart';
 import 'package:proximitreats/ui/auth/login_page.dart';
 import 'package:proximitreats/ui/discover/discover_page.dart';
@@ -11,8 +12,10 @@ import 'package:serverpod_auth_idp_flutter/serverpod_auth_idp_flutter.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
+final _log = Logger('AppRouter');
+
 GoRouter createAppRouter(Client client) {
-  return GoRouter(
+  final router = GoRouter(
     navigatorKey: _rootNavigatorKey,
     refreshListenable: client.auth.authInfoListenable,
     initialLocation: '/',
@@ -71,4 +74,10 @@ GoRouter createAppRouter(Client client) {
       ),
     ],
   );
+  router.routerDelegate.addListener(() {
+    _log.info(
+      'Current location: ${router.routerDelegate.currentConfiguration.uri}',
+    );
+  });
+  return router;
 }

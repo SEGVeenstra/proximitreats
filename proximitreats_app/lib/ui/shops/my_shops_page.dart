@@ -5,6 +5,12 @@ class MyShopsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: Center(child: Text('My Shops Page')));
+    return Scaffold(
+      body: Center(child: Text('My Shops Page')),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+      ),
+    );
   }
 }

@@ -1,0 +1,8 @@
+{
+    "discoverPage": {
+        "title": "Discover",
+        "errors": {
+            "somethingWentWrong": "Something went wrong, please try again."
+        }
+    }
+}

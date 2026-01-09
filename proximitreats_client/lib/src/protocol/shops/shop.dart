@@ -19,15 +19,17 @@ abstract class Shop implements _i1.SerializableModel {
   Shop._({
     this.id,
     required this.name,
+    String? intro,
     required this.description,
     this.image,
     required this.ownerId,
     this.owner,
-  });
+  }) : intro = intro ?? '';
 
   factory Shop({
     _i1.UuidValue? id,
     required String name,
+    String? intro,
     required String description,
     String? image,
     required _i1.UuidValue ownerId,
@@ -40,6 +42,7 @@ abstract class Shop implements _i1.SerializableModel {
           ? null
           : _i1.UuidValueJsonExtension.fromJson(jsonSerialization['id']),
       name: jsonSerialization['name'] as String,
+      intro: jsonSerialization['intro'] as String,
       description: jsonSerialization['description'] as String,
       image: jsonSerialization['image'] as String?,
       ownerId: _i1.UuidValueJsonExtension.fromJson(
@@ -60,6 +63,8 @@ abstract class Shop implements _i1.SerializableModel {
 
   String name;
 
+  String intro;
+
   String description;
 
   String? image;
@@ -74,6 +79,7 @@ abstract class Shop implements _i1.SerializableModel {
   Shop copyWith({
     _i1.UuidValue? id,
     String? name,
+    String? intro,
     String? description,
     String? image,
     _i1.UuidValue? ownerId,
@@ -85,6 +91,7 @@ abstract class Shop implements _i1.SerializableModel {
       '__className__': 'Shop',
       if (id != null) 'id': id?.toJson(),
       'name': name,
+      'intro': intro,
       'description': description,
       if (image != null) 'image': image,
       'ownerId': ownerId.toJson(),
@@ -104,6 +111,7 @@ class _ShopImpl extends Shop {
   _ShopImpl({
     _i1.UuidValue? id,
     required String name,
+    String? intro,
     required String description,
     String? image,
     required _i1.UuidValue ownerId,
@@ -111,6 +119,7 @@ class _ShopImpl extends Shop {
   }) : super._(
          id: id,
          name: name,
+         intro: intro,
          description: description,
          image: image,
          ownerId: ownerId,
@@ -124,6 +133,7 @@ class _ShopImpl extends Shop {
   Shop copyWith({
     Object? id = _Undefined,
     String? name,
+    String? intro,
     String? description,
     Object? image = _Undefined,
     _i1.UuidValue? ownerId,
@@ -132,6 +142,7 @@ class _ShopImpl extends Shop {
     return Shop(
       id: id is _i1.UuidValue? ? id : this.id,
       name: name ?? this.name,
+      intro: intro ?? this.intro,
       description: description ?? this.description,
       image: image is String? ? image : this.image,
       ownerId: ownerId ?? this.ownerId,
