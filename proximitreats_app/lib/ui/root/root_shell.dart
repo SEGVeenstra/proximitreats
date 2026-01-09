@@ -19,7 +19,10 @@ class RootShell extends ListenableWidget<RootShellViewModel> {
       body: child,
       bottomNavigationBar: NavigationBar(
         selectedIndex: child.currentIndex,
-        onDestinationSelected: (index) => child.goBranch(index),
+        onDestinationSelected: (index) {
+          final shouldGoToRoot = index == child.currentIndex;
+          child.goBranch(index, initialLocation: shouldGoToRoot);
+        },
         destinations: [
           NavigationDestination(
             icon: Icon(Icons.calendar_month_outlined),

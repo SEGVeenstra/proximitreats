@@ -6,6 +6,7 @@ import 'package:proximitreats/ui/auth/login_page.dart';
 import 'package:proximitreats/ui/discover/discover_page.dart';
 import 'package:proximitreats/ui/root/root_shell.dart';
 import 'package:proximitreats/ui/shops/my_shops_page.dart';
+import 'package:proximitreats/ui/shops/shop_detail_page.dart';
 import 'package:proximitreats/ui/today/today_page.dart';
 import 'package:proximitreats_client/proximitreats_client.dart';
 import 'package:serverpod_auth_idp_flutter/serverpod_auth_idp_flutter.dart';
@@ -36,7 +37,6 @@ GoRouter createAppRouter(Client client) {
         notifyRootObserver: true,
         builder: (context, state, navigationShell) =>
             RootShell(child: navigationShell),
-
         branches: [
           StatefulShellBranch(
             routes: [
@@ -51,6 +51,15 @@ GoRouter createAppRouter(Client client) {
               GoRoute(
                 path: '/search',
                 builder: (context, state) => const DiscoverPage(),
+                routes: [
+                  GoRoute(
+                    path: 'shop/:id',
+                    builder: (context, state) {
+                      final id = state.pathParameters['id']!;
+                      return ShopDetailPage(shopId: UuidValue.fromString(id));
+                    },
+                  ),
+                ],
               ),
             ],
           ),

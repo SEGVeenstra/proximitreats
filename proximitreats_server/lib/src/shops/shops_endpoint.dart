@@ -10,6 +10,11 @@ class ShopsEndpoint extends Endpoint {
     return shops;
   }
 
+  Future<Shop?> getById(Session session, UuidValue shopId) async {
+    final shop = await Shop.db.findById(session, shopId);
+    return shop;
+  }
+
   /// Searches for shops based on the provided query and language.
   /// language is used to determine the text search configuration in the database.
   /// Defaults to 'english'.

@@ -267,6 +267,13 @@ class EndpointShops extends _i2.EndpointRef {
         {},
       );
 
+  _i3.Future<_i6.Shop?> getById(_i2.UuidValue shopId) =>
+      caller.callServerEndpoint<_i6.Shop?>(
+        'shops',
+        'getById',
+        {'shopId': shopId},
+      );
+
   /// Searches for shops based on the provided query and language.
   /// language is used to determine the text search configuration in the database.
   /// Defaults to 'english'.

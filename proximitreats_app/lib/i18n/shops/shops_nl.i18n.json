@@ -1,0 +1,9 @@
+{
+    "shopDetailPage": {
+        "title": "Winkel Details",
+        "errors": {
+            "failedToLoad": "Kan winkelgegevens niet laden",
+            "shopNotFound": "Winkel niet gevonden"
+        }
+    }
+}

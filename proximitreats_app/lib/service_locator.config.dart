@@ -20,6 +20,8 @@ import 'package:proximitreats/services/user_service.dart' as _i325;
 import 'package:proximitreats/ui/discover/discover_page_view_model.dart'
     as _i292;
 import 'package:proximitreats/ui/root/root_shell_view_model.dart' as _i923;
+import 'package:proximitreats/ui/shops/shop_detail_page_view_model.dart'
+    as _i637;
 import 'package:proximitreats_client/proximitreats_client.dart' as _i207;
 import 'package:serverpod_auth_idp_flutter/serverpod_auth_idp_flutter.dart'
     as _i90;
@@ -50,6 +52,10 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.singleton<_i737.ShopsService>(
       () => _i737.ShopsService(gh<_i207.Client>()),
+    );
+    gh.factoryParam<_i637.ShopDetailPageViewModel, _i207.UuidValue, dynamic>(
+      (shopId, _) =>
+          _i637.ShopDetailPageViewModel(gh<_i737.ShopsService>(), shopId),
     );
     await gh.singletonAsync<_i583.GoRouter>(
       () => registerModule.appRouter(gh<_i207.Client>()),

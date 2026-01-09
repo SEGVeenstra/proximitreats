@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:proximitreats/i18n/strings.g.dart';
 import 'package:proximitreats/ui/discover/discover_page_view_model.dart';
 import 'package:proximitreats/ui/discover/widgets/discover_list_item.dart';
@@ -38,7 +39,7 @@ class DiscoverPage extends SlListenableWidget<DiscoverPageViewModel> {
             return DiscoverListItem(
               shop: shop,
               onTap: () {
-                // TODO: navigate to detail page
+                context.push('/search/shop/${shop.id}');
               },
             );
           },

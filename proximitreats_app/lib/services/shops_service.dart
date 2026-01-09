@@ -35,6 +35,16 @@ class ShopsService {
       return Result.error(ShopServiceException());
     }
   }
+
+  Future<Result<Shop?, ShopServiceException>> getById(UuidValue shopId) async {
+    try {
+      _log.fine('Fetching shop by ID: $shopId');
+      return Result.success(await _client.shops.getById(shopId));
+    } catch (e) {
+      _log.severe('Failed to get shop by ID: $shopId', e);
+      return Result.error(ShopServiceException());
+    }
+  }
 }
 
 class ShopServiceException implements Exception {}

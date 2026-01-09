@@ -1,0 +1,9 @@
+{
+    "shopDetailPage": {
+        "title": "Shop Details",
+        "errors": {
+            "failedToLoad": "Failed to load shop details",
+            "shopNotFound": "Shop not found"
+        }
+    }
+}

@@ -43,6 +43,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	late final TranslationsCommonEn common = TranslationsCommonEn.internal(_root);
 	late final TranslationsDiscoverEn discover = TranslationsDiscoverEn.internal(_root);
 	late final TranslationsRootEn root = TranslationsRootEn.internal(_root);
+	late final TranslationsShopsEn shops = TranslationsShopsEn.internal(_root);
 }
 
 // Path: common
@@ -73,6 +74,16 @@ class TranslationsRootEn {
 
 	// Translations
 	late final TranslationsRootNavigationEn navigation = TranslationsRootNavigationEn.internal(_root);
+}
+
+// Path: shops
+class TranslationsShopsEn {
+	TranslationsShopsEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsShopsShopDetailPageEn shopDetailPage = TranslationsShopsShopDetailPageEn.internal(_root);
 }
 
 // Path: common.actions
@@ -122,6 +133,20 @@ class TranslationsRootNavigationEn {
 	String get shops => 'My Shops';
 }
 
+// Path: shops.shopDetailPage
+class TranslationsShopsShopDetailPageEn {
+	TranslationsShopsShopDetailPageEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Shop Details'
+	String get title => 'Shop Details';
+
+	late final TranslationsShopsShopDetailPageErrorsEn errors = TranslationsShopsShopDetailPageErrorsEn.internal(_root);
+}
+
 // Path: discover.discoverPage.errors
 class TranslationsDiscoverDiscoverPageErrorsEn {
 	TranslationsDiscoverDiscoverPageErrorsEn.internal(this._root);
@@ -132,6 +157,21 @@ class TranslationsDiscoverDiscoverPageErrorsEn {
 
 	/// en: 'Something went wrong, please try again.'
 	String get somethingWentWrong => 'Something went wrong, please try again.';
+}
+
+// Path: shops.shopDetailPage.errors
+class TranslationsShopsShopDetailPageErrorsEn {
+	TranslationsShopsShopDetailPageErrorsEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Failed to load shop details'
+	String get failedToLoad => 'Failed to load shop details';
+
+	/// en: 'Shop not found'
+	String get shopNotFound => 'Shop not found';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -149,6 +189,9 @@ extension on Translations {
 			'root.navigation.discover' => 'Discover',
 			'root.navigation.alerts' => 'My Alerts',
 			'root.navigation.shops' => 'My Shops',
+			'shops.shopDetailPage.title' => 'Shop Details',
+			'shops.shopDetailPage.errors.failedToLoad' => 'Failed to load shop details',
+			'shops.shopDetailPage.errors.shopNotFound' => 'Shop not found',
 			_ => null,
 		};
 	}

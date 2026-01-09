@@ -1,4 +1,4 @@
-.PHONY: help docker-up docker-down server-run generate-client create-migration app-build-runner app-slang
+.PHONY: help docker-up docker-down server-run generate-client create-migration app-build-runner app-slang kill-server
 
 # Display available actions
 help:
@@ -10,6 +10,7 @@ help:
 	@echo "  create-migration - Create a new migration"
 	@echo "  app-build-runner - Run build_runner for the app"
 	@echo "  app-slang        - Generate slang localization files for the app"
+	@echo "  kill-server      - Kill processes on Serverpod ports (8080, 8081, 8082)"
 
 # Start the Docker services (PostgreSQL and Redis)
 docker-up:
@@ -38,3 +39,11 @@ app-build-runner:
 # Generate slang localization files for the app
 app-slang:
 	cd proximitreats_app && fvm dart run slang
+
+# Kill processes running on Serverpod ports
+kill-server:
+	@echo "Killing processes on Serverpod ports..."
+	@lsof -ti:8080 | xargs kill -9 2>/dev/null || echo "No process on port 8080"
+	@lsof -ti:8081 | xargs kill -9 2>/dev/null || echo "No process on port 8081"
+	@lsof -ti:8082 | xargs kill -9 2>/dev/null || echo "No process on port 8082"
+	@echo "Done!"

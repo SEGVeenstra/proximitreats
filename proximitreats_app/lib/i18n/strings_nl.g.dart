@@ -42,6 +42,7 @@ class TranslationsNl extends Translations with BaseTranslations<AppLocale, Trans
 	@override late final TranslationsCommonNl common = TranslationsCommonNl._(_root);
 	@override late final TranslationsDiscoverNl discover = TranslationsDiscoverNl._(_root);
 	@override late final TranslationsRootNl root = TranslationsRootNl._(_root);
+	@override late final TranslationsShopsNl shops = TranslationsShopsNl._(_root);
 }
 
 // Path: common
@@ -72,6 +73,16 @@ class TranslationsRootNl extends TranslationsRootEn {
 
 	// Translations
 	@override late final TranslationsRootNavigationNl navigation = TranslationsRootNavigationNl._(_root);
+}
+
+// Path: shops
+class TranslationsShopsNl extends TranslationsShopsEn {
+	TranslationsShopsNl._(TranslationsNl root) : this._root = root, super.internal(root);
+
+	final TranslationsNl _root; // ignore: unused_field
+
+	// Translations
+	@override late final TranslationsShopsShopDetailPageNl shopDetailPage = TranslationsShopsShopDetailPageNl._(_root);
 }
 
 // Path: common.actions
@@ -108,6 +119,17 @@ class TranslationsRootNavigationNl extends TranslationsRootNavigationEn {
 	@override String get shops => 'Mijn Winkels';
 }
 
+// Path: shops.shopDetailPage
+class TranslationsShopsShopDetailPageNl extends TranslationsShopsShopDetailPageEn {
+	TranslationsShopsShopDetailPageNl._(TranslationsNl root) : this._root = root, super.internal(root);
+
+	final TranslationsNl _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Winkel Details';
+	@override late final TranslationsShopsShopDetailPageErrorsNl errors = TranslationsShopsShopDetailPageErrorsNl._(_root);
+}
+
 // Path: discover.discoverPage.errors
 class TranslationsDiscoverDiscoverPageErrorsNl extends TranslationsDiscoverDiscoverPageErrorsEn {
 	TranslationsDiscoverDiscoverPageErrorsNl._(TranslationsNl root) : this._root = root, super.internal(root);
@@ -116,6 +138,17 @@ class TranslationsDiscoverDiscoverPageErrorsNl extends TranslationsDiscoverDisco
 
 	// Translations
 	@override String get somethingWentWrong => 'Er is iets misgegaan, probeer het opnieuw.';
+}
+
+// Path: shops.shopDetailPage.errors
+class TranslationsShopsShopDetailPageErrorsNl extends TranslationsShopsShopDetailPageErrorsEn {
+	TranslationsShopsShopDetailPageErrorsNl._(TranslationsNl root) : this._root = root, super.internal(root);
+
+	final TranslationsNl _root; // ignore: unused_field
+
+	// Translations
+	@override String get failedToLoad => 'Kan winkelgegevens niet laden';
+	@override String get shopNotFound => 'Winkel niet gevonden';
 }
 
 /// The flat map containing all translations for locale <nl>.
@@ -133,6 +166,9 @@ extension on TranslationsNl {
 			'root.navigation.discover' => 'Ontdekken',
 			'root.navigation.alerts' => 'Mijn Alerts',
 			'root.navigation.shops' => 'Mijn Winkels',
+			'shops.shopDetailPage.title' => 'Winkel Details',
+			'shops.shopDetailPage.errors.failedToLoad' => 'Kan winkelgegevens niet laden',
+			'shops.shopDetailPage.errors.shopNotFound' => 'Winkel niet gevonden',
 			_ => null,
 		};
 	}

@@ -12,5 +12,6 @@
       "database": "proximitreats",
       "username": "postgres"
     }
-  ]
+  ],
+  "java.configuration.updateBuildConfiguration": "disabled"
 }
