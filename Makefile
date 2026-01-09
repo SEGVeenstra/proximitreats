@@ -1,4 +1,4 @@
-.PHONY: help docker-up docker-down server-run generate-client create-migration app-build-runner
+.PHONY: help docker-up docker-down server-run generate-client create-migration app-build-runner app-slang
 
 # Display available actions
 help:
@@ -9,6 +9,7 @@ help:
 	@echo "  generate-client  - Generate client files"
 	@echo "  create-migration - Create a new migration"
 	@echo "  app-build-runner - Run build_runner for the app"
+	@echo "  app-slang        - Generate slang localization files for the app"
 
 # Start the Docker services (PostgreSQL and Redis)
 docker-up:
@@ -33,3 +34,7 @@ create-migration:
 # Run build_runner for the app
 app-build-runner:
 	cd proximitreats_app && dart run build_runner build --delete-conflicting-outputs
+
+# Generate slang localization files for the app
+app-slang:
+	cd proximitreats_app && fvm dart run slang

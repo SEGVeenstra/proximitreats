@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   get_it: ^9.2.0
   injectable: ^2.7.1+2
@@ -22,6 +24,8 @@ dependencies:
   cached_network_image: ^3.4.1
   gap: ^3.0.1
   multiple_result: ^5.2.0
+  slang: ^4.11.1
+  slang_flutter: ^4.11.0
 
 dev_dependencies:
   flutter_test:

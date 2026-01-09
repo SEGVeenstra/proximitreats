@@ -28,6 +28,9 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        
+        // Specify supported locales
+        resourceConfigurations.addAll(listOf("en", "nl"))
     }
 
     buildTypes {
