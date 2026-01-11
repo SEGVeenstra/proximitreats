@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:proximitreats/i18n/strings.g.dart';
 import 'package:proximitreats/ui/discover/discover_page_view_model.dart';
-import 'package:proximitreats/ui/discover/widgets/discover_list_item.dart';
+import 'package:proximitreats/ui/shops/widgets/shop_list_item.dart';
 import 'package:proximitreats/utils/get_it_listenable_widget.dart';
 
 class DiscoverPage
@@ -37,7 +37,7 @@ class DiscoverPage
           itemCount: viewModel.shops.length,
           itemBuilder: (context, index) {
             final shop = viewModel.shops[index];
-            return DiscoverListItem(
+            return ShopListItem(
               shop: shop,
               onTap: () {
                 context.push('/search/shop/${shop.id}');

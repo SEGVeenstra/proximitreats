@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:proximitreats_client/proximitreats_client.dart';
 
-class DiscoverListItem extends StatelessWidget {
-  const DiscoverListItem({super.key, required this.shop, this.onTap});
+class ShopListItem extends StatelessWidget {
+  const ShopListItem({super.key, required this.shop, this.onTap});
 
   final Shop shop;
   final void Function()? onTap;

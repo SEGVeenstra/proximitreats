@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:proximitreats/i18n/strings.g.dart';
-import 'package:proximitreats/ui/discover/widgets/discover_list_item.dart';
 import 'package:proximitreats/ui/shops/my_shops_page_view_model.dart';
+import 'package:proximitreats/ui/shops/widgets/shop_list_item.dart';
 import 'package:proximitreats/utils/get_it_listenable_widget.dart';
 
 class MyShopsPage
@@ -33,7 +33,7 @@ class MyShopsPage
         padding: const EdgeInsets.all(16),
         children: [
           for (final shop in viewModel.shops)
-            DiscoverListItem(shop: shop, onTap: () {}),
+            ShopListItem(shop: shop, onTap: () {}),
         ],
       );
     }
