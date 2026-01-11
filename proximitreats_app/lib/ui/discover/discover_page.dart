@@ -3,9 +3,10 @@ import 'package:go_router/go_router.dart';
 import 'package:proximitreats/i18n/strings.g.dart';
 import 'package:proximitreats/ui/discover/discover_page_view_model.dart';
 import 'package:proximitreats/ui/discover/widgets/discover_list_item.dart';
-import 'package:proximitreats/utils/sl_listenable_widget.dart';
+import 'package:proximitreats/utils/get_it_listenable_widget.dart';
 
-class DiscoverPage extends SlListenableWidget<DiscoverPageViewModel> {
+class DiscoverPage
+    extends GetItListenableWidget<DiscoverPageViewModel, void, void> {
   const DiscoverPage({super.key});
 
   @override

@@ -56,7 +56,7 @@ GoRouter createAppRouter(Client client) {
                     path: 'shop/:id',
                     builder: (context, state) {
                       final id = state.pathParameters['id']!;
-                      return ShopDetailPage(shopId: UuidValue.fromString(id));
+                      return ShopDetailPage(param1: UuidValue.fromString(id));
                     },
                   ),
                 ],
