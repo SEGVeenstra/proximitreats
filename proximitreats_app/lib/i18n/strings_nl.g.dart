@@ -83,6 +83,7 @@ class TranslationsShopsNl extends TranslationsShopsEn {
 
 	// Translations
 	@override late final TranslationsShopsShopDetailPageNl shopDetailPage = TranslationsShopsShopDetailPageNl._(_root);
+	@override late final TranslationsShopsMyShopsPageNl myShopsPage = TranslationsShopsMyShopsPageNl._(_root);
 }
 
 // Path: common.actions
@@ -130,6 +131,16 @@ class TranslationsShopsShopDetailPageNl extends TranslationsShopsShopDetailPageE
 	@override late final TranslationsShopsShopDetailPageErrorsNl errors = TranslationsShopsShopDetailPageErrorsNl._(_root);
 }
 
+// Path: shops.myShopsPage
+class TranslationsShopsMyShopsPageNl extends TranslationsShopsMyShopsPageEn {
+	TranslationsShopsMyShopsPageNl._(TranslationsNl root) : this._root = root, super.internal(root);
+
+	final TranslationsNl _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Mijn winkels';
+}
+
 // Path: discover.discoverPage.errors
 class TranslationsDiscoverDiscoverPageErrorsNl extends TranslationsDiscoverDiscoverPageErrorsEn {
 	TranslationsDiscoverDiscoverPageErrorsNl._(TranslationsNl root) : this._root = root, super.internal(root);
@@ -169,6 +180,7 @@ extension on TranslationsNl {
 			'shops.shopDetailPage.title' => 'Winkel Details',
 			'shops.shopDetailPage.errors.failedToLoad' => 'Kan winkelgegevens niet laden',
 			'shops.shopDetailPage.errors.shopNotFound' => 'Winkel niet gevonden',
+			'shops.myShopsPage.title' => 'Mijn winkels',
 			_ => null,
 		};
 	}

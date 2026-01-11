@@ -5,5 +5,8 @@
             "failedToLoad": "Kan winkelgegevens niet laden",
             "shopNotFound": "Winkel niet gevonden"
         }
+    },
+    "myShopsPage": {
+        "title": "Mijn winkels"
     }
 }

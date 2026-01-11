@@ -281,6 +281,16 @@ class Endpoints extends _i1.EndpointDispatch {
               ) async =>
                   (endpoints['shops'] as _i5.ShopsEndpoint).getAll(session),
         ),
+        'getMine': _i1.MethodConnector(
+          name: 'getMine',
+          params: {},
+          call:
+              (
+                _i1.Session session,
+                Map<String, dynamic> params,
+              ) async =>
+                  (endpoints['shops'] as _i5.ShopsEndpoint).getMine(session),
+        ),
         'getById': _i1.MethodConnector(
           name: 'getById',
           params: {

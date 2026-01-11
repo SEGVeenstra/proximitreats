@@ -12,5 +12,6 @@ greeting:
   - hello:
 shops:
   - getAll:
+  - getMine:
   - getById:
   - search:

@@ -5,5 +5,8 @@
             "failedToLoad": "Failed to load shop details",
             "shopNotFound": "Shop not found"
         }
+    },
+    "myShopsPage": {
+        "title": "My Shops"
     }
 }

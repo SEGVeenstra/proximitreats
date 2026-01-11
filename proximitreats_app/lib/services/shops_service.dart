@@ -36,6 +36,16 @@ class ShopsService {
     }
   }
 
+  Future<Result<List<Shop>, ShopServiceException>> getMine() async {
+    try {
+      _log.fine('Fetching all shops from API');
+      return Result.success(await _client.shops.getMine());
+    } catch (e) {
+      _log.severe('Failed to get all shops', e);
+      return Result.error(ShopServiceException());
+    }
+  }
+
   Future<Result<Shop?, ShopServiceException>> getById(UuidValue shopId) async {
     try {
       _log.fine('Fetching shop by ID: $shopId');

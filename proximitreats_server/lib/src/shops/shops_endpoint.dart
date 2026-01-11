@@ -10,6 +10,21 @@ class ShopsEndpoint extends Endpoint {
     return shops;
   }
 
+  /// Returns the shops owned by the authenticated user.
+  Future<List<Shop>> getMine(Session session) async {
+    final authInfo = session.authenticated;
+    final userIdentifier = authInfo?.userIdentifier;
+    if (userIdentifier == null) {
+      throw Exception('User not authenticated');
+    }
+    final ownerId = UuidValue.fromString(userIdentifier);
+    final shops = await Shop.db.find(
+      session,
+      where: (t) => t.ownerId.equals(ownerId),
+    );
+    return shops;
+  }
+
   Future<Shop?> getById(Session session, UuidValue shopId) async {
     final shop = await Shop.db.findById(session, shopId);
     return shop;

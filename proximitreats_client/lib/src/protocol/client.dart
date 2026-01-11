@@ -267,6 +267,14 @@ class EndpointShops extends _i2.EndpointRef {
         {},
       );
 
+  /// Returns the shops owned by the authenticated user.
+  _i3.Future<List<_i6.Shop>> getMine() =>
+      caller.callServerEndpoint<List<_i6.Shop>>(
+        'shops',
+        'getMine',
+        {},
+      );
+
   _i3.Future<_i6.Shop?> getById(_i2.UuidValue shopId) =>
       caller.callServerEndpoint<_i6.Shop?>(
         'shops',

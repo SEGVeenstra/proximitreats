@@ -84,6 +84,7 @@ class TranslationsShopsEn {
 
 	// Translations
 	late final TranslationsShopsShopDetailPageEn shopDetailPage = TranslationsShopsShopDetailPageEn.internal(_root);
+	late final TranslationsShopsMyShopsPageEn myShopsPage = TranslationsShopsMyShopsPageEn.internal(_root);
 }
 
 // Path: common.actions
@@ -147,6 +148,18 @@ class TranslationsShopsShopDetailPageEn {
 	late final TranslationsShopsShopDetailPageErrorsEn errors = TranslationsShopsShopDetailPageErrorsEn.internal(_root);
 }
 
+// Path: shops.myShopsPage
+class TranslationsShopsMyShopsPageEn {
+	TranslationsShopsMyShopsPageEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'My Shops'
+	String get title => 'My Shops';
+}
+
 // Path: discover.discoverPage.errors
 class TranslationsDiscoverDiscoverPageErrorsEn {
 	TranslationsDiscoverDiscoverPageErrorsEn.internal(this._root);
@@ -192,6 +205,7 @@ extension on Translations {
 			'shops.shopDetailPage.title' => 'Shop Details',
 			'shops.shopDetailPage.errors.failedToLoad' => 'Failed to load shop details',
 			'shops.shopDetailPage.errors.shopNotFound' => 'Shop not found',
+			'shops.myShopsPage.title' => 'My Shops',
 			_ => null,
 		};
 	}

@@ -20,6 +20,7 @@ import 'package:proximitreats/services/user_service.dart' as _i325;
 import 'package:proximitreats/ui/discover/discover_page_view_model.dart'
     as _i292;
 import 'package:proximitreats/ui/root/root_shell_view_model.dart' as _i923;
+import 'package:proximitreats/ui/shops/my_shops_page_view_model.dart' as _i162;
 import 'package:proximitreats/ui/shops/shop_detail_page_view_model.dart'
     as _i637;
 import 'package:proximitreats_client/proximitreats_client.dart' as _i207;
@@ -63,6 +64,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i292.DiscoverPageViewModel>(
       () => _i292.DiscoverPageViewModel(gh<_i737.ShopsService>()),
+    );
+    gh.factory<_i162.MyShopsPageViewModel>(
+      () => _i162.MyShopsPageViewModel(gh<_i737.ShopsService>()),
     );
     return this;
   }
